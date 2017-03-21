@@ -62,6 +62,7 @@ type EnvStruct struct {
 	TIER     string
 	TIER_KEY string
 	GIN_MODE string
+	PORT     string
 
 	CSRF_SECRET string
 

@@ -1,0 +1,10 @@
+.env
+.docker_build/
+.sass-cache
+dump.rdb
+*.sass-cache
+**/.sass-cache
+.DS_Store
+*.DS_Store
+**/.DS_Store
+**/latest.dump

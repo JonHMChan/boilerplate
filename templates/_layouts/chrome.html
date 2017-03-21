@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}Boilerplate{% endblock %}</title>
+
+        <!-- Mobile settings -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ View.Img("favicon.ico") }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ View.Img("shared/favicon/apple-touch-icon-57x57.png") }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ View.Img("shared/favicon/apple-touch-icon-114x114.png") }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ View.Img("shared/favicon/apple-touch-icon-72x72.png") }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ View.Img("shared/favicon/apple-touch-icon-144x144.png") }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ View.Img("shared/favicon/apple-touch-icon-60x60.png") }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ View.Img("shared/favicon/apple-touch-icon-120x120.png") }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ View.Img("shared/favicon/apple-touch-icon-76x76.png") }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ View.Img("shared/favicon/apple-touch-icon-152x152.png") }}">
+        <link rel="icon" type="image/png" href="{{ View.Img("shared/favicon/favicon-196x196.png") }}" sizes="196x196">
+        <link rel="icon" type="image/png" href="{{ View.Img("shared/favicon/favicon-160x160.png") }}" sizes="160x160">
+        <link rel="icon" type="image/png" href="{{ View.Img("shared/favicon/favicon-96x96.png") }}" sizes="96x96">
+        <link rel="icon" type="image/png" href="{{ View.Img("shared/favicon/favicon-16x16.png") }}" sizes="16x16">
+        <link rel="icon" type="image/png" href="{{ View.Img("shared/favicon/favicon-32x32.png") }}" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="{{ View.Img("shared/favicon/mstile-144x144.png") }}">
+        <meta name="msapplication-square70x70logo" content="{{ View.Img("shared/favicon/mstile-70x70.png") }}">
+        <meta name="msapplication-square144x144logo" content="{{ View.Img("shared/favicon/mstile-144x144.png") }}">
+        <meta name="msapplication-square150x150logo" content="{{ View.Img("shared/favicon/mstile-150x150.png") }}">
+        <meta name="msapplication-square310x310logo" content="{{ View.Img("shared/favicon/mstile-310x310.png") }}">
+        <meta name="msapplication-wide310x150logo" content="{{ View.Img("shared/favicon/mstile-310x150.png") }}">
+
+        <!-- Anti click jacking scripts -->
+        <style id="antiClickjack">body{display:none !important;}</style>
+        <script type="text/javascript">
+           if (self === top) {
+               var antiClickjack = document.getElementById("antiClickjack");
+               antiClickjack.parentNode.removeChild(antiClickjack);
+           } else {
+               top.location = self.location;
+           }
+        </script>
+
+        <!-- Facebook settings -->
+        {% block facebook %}
+        <meta property="fb:admins" content="" />
+        <meta property="fb:app_id" content="" />
+        <meta property="og:image" content=""/>
+        <meta property="og:title" content=""/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content=""/>
+        <meta property="og:description" content="">
+        <meta property="og:type" content="website"/>
+        {% endblock %}
+
+        <!-- Twitter settings -->
+        {% block twitter %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@jonhmchan">
+        <meta name="twitter:creator" content="@jonhmchan">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image:src" content="">
+        {% endblock %}
+
+        <!-- Google settings -->
+        <meta name="description" content="{% block description %}{% endblock %}">
+        <meta name="google-site-verification" content="" />
+
+        <!-- Google Optimize -->
+        <style>.async-hide { opacity: 0 !important} </style>
+        <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+        h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document.documentElement,'async-hide','dataLayer',4000,
+        {'GTM-TVNLSJC':true});</script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', '{{ GOOGLE_ANALYTICS_ID }}', 'auto');
+          {% if !Anonymous %}
+          ga('set', 'userId', {{ User.ID }}); // Set the user ID using signed-in user_id.
+          {% endif %}
+          ga('send', 'pageview');
+
+        </script>
+
+        <!-- Shared CSS -->
+        <link rel="stylesheet" href="{{ View.Css("_shared/vendor/font-awesome/font-awesome.css") }}">
+
+        <!-- Page specific -->
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% block contents %}{% endblock %}
+
+        <!-- CSRF -->
+        {% include "../_partials/csrf.html" %}
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="/static/js/dist/_shared/vendor/jquery/jquery-3.1.0.min.js"></script>
+
+        <!-- CSRF -->
+        <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-Token": '{{ CSRF }}'
+                }
+            });
+        </script>
+
+        {% block js %}{% endblock %}
+    </body>
+</html>

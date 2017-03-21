@@ -10,3 +10,7 @@ type User struct {
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `json:"deleted_at"`
 }
+
+func (user *User) IsAnonymous() bool {
+	return user.ID == 0
+}
